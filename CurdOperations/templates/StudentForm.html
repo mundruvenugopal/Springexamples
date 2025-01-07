@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Thymeleaf Demo</title>
+		</head>
+	<body>
+		<form th:action="@{/save}" th:object="${studentRequestDTO}" method="POST" enctype="multipart/form-data">
+	<!--<input type="hidden" th:field="*{id}" />-->
+		FirstName:<input type="text" th:field="*{firstName}" placeholder="FirstName"class="form-control mb-4 w-25"/>
+				<span th:if="${#fields.hasErrors('firstName')}"
+												 th:errors="*{firstName}"
+												 class="error"></span>
+												 <br><br>
+	lastName:<input type="text" th:field="*{lastName}" placeholder="LastName"class="form-control mb-4 w-25"/>
+		<span th:if="${#fields.hasErrors('lastName')}"
+										 th:errors="*{lastName}"
+										 class="error"></span>
+										 <br><br>
+		Email:<input type="text" th:field="*{email}" placeholder="Email"class="form-control mb-4 w-25"  />
+		<span th:if="${#fields.hasErrors('email')}"
+										 th:errors="*{email}"
+										 class="error"></span>
+										 <br><br>
+		PhoneNumber:<input type="tel" th:field="*{phNo}" placeholder="PhoneNumber"class="form-control mb-4 w-25"/>
+		<span th:if="${#fields.hasErrors('phNo')}"
+										 th:errors="*{phNo}"
+										 class="error"></span>
+										 <br><br>
+		 StudentPhoto:<input type="file" name="studentphoto" class="form-control mb-4 w-25"/> <!-- Input for image upload -->
+		 <span th:if="${#fields.hasErrors('studentphoto')}"
+		 								 th:errors="*{studentphoto}"
+										 class="error"></span>
+										 <br><br>
+<!--		StudentPhoto:<input type="file" th:field="*{studentphoto}" placeholder="studentphoto"class="form-control mb-4 w-25"/>
+		<span th:if="${#fields.hasErrors('studentphoto')}"
+										 th:errors="*{studentphoto}"
+										 class="error"></span>
+										 <br><br>	-->
+								<!--StudentPhoto:<input type="file" name="studentphoto" />	-->			
+		<button type="submit" class="btn btn-info col-2">Save</button>	
+	</body>
+</html>
+	

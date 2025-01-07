@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Thymeleaf Demo</title>
+		<style>
+			.error{
+				color:red;
+			}
+		</style>
+		</head>
+		<body>
+			<form th:action="@{/processform}" th:object="${student}" method="Get">
+				FirstName:<input type="text" th:field="*{FirstName}"/>
+				<span th:if="${#fields.hasErrors('FirstName')}"
+								 th:errors="*{FirstName}"
+								 class="error"></span>
+				<br><br>
+				LastName:<input type="text" th:field="*{LastName}"/>
+				<span th:if="${#fields.hasErrors('LastName')}"
+				 th:errors="*{LastName}"
+				 class="error"></span>
+				<br><br>
+			Country:
+					<select th:field="*{Country}">
+					<!--<option th:value="India">India</option>
+					<option th:value="USA">USA</option>
+					<option th:value="Srilanka">Srilanka</option>-->
+					<option th:each="tempCountry:${countries}"th:value="${tempCountry}"th:text="${tempCountry}"/>
+					</select>
+					<br><br>
+				PhoneNumber:<input type="tel" th:field="*{PhoneNumber}"/>
+									<span th:if="${#fields.hasErrors('PhoneNumber')}"
+									 th:errors="*{PhoneNumber}"
+									 class="error">
+								  </span>
+									<br><br>
+				EmailId:<input type="email" th:field="*{EmailId}"/>
+									<span th:if="${#fields.hasErrors('EmailId')}"
+						            th:errors="*{EmailId}"
+									class="error">
+									</span>
+						            <br><br>
+				Password:<input type="password" th:field="*{Password}"/>
+									<span th:if="${#fields.hasErrors('Password')}"
+									th:errors="*{Password}"
+								     class="error">
+									</span>
+								   <br><br>
+				DateOfBirth:<input type="date" th:field="*{DateOfBirth}"/> <br><br>
+				File:<input type="file" th:field="*{File}"/><br><br>
+										
+												
+				StudentId:<input type="text" th:field="*{StudentId}"/><br><br>
+				<span th:if="${#fields.hasErrors('StudentId')}"
+													th:errors="*{StudentId}"
+												     class="error">
+													</span>
+												   <br><br>
+									
+		Favorite Programming Language:
+	<!--	<input type="radio" th:field="*{Languages}" th:value="Go">GO</input>	
+		<input type="radio" th:field="*{Languages}" th:value="Java">Java</input>	
+		<input type="radio" th:field="*{Languages}" th:value="'Python lan'">Python</input>	-->
+		<input type="radio" th:field="*{Languages}" th:each="templanguages:${languages}"th:value="${templanguages}"th:text="${templanguages}"/>
+		<br><br>
+		
+		
+		Favorite System:
+	<!--	<input type="checkbox" th:field="*{favoriteSystem}" th:value="Linux">Linux</input>	
+		<input type="checkbox" th:field="*{favoriteSystem}" th:value="macOS">macOS</input>	
+		<input type="checkbox" th:field="*{favoriteSystem}" th:value="'Microsoft window'">Microsoft window</input>
+		<br><br>-->
+		<input type="checkbox" th:field="*{favoriteSystem}" th:each="tempfavorite:${favouriteSystem}"th:value="${tempfavorite}"th:text="${tempfavorite}"/>
+				<br><br>
+				<input type="submit" value="submit"/>
+			</form>
+		
+		</body>
+</html>

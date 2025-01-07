@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Thymeleaf Demo</title>
+		</head>
+		<body>
+		StudentFirstName:<span th:text="${student.FirstName}"/><br><br>
+		StudentLastName:<span th:text="${student.LastName}"/><br><br>
+		StudentPhoneNumber:<span th:text="${student.PhoneNumber}"/><br><br>
+		StudentEmailId:<span th:text="${student.EmailId}"/><br><br>
+			 StudentCountry:<span th:text="${student.Country}"/><br><br>
+			 StudentFavouriteLanguage:<span th:text="${student.Languages}"/><br><br>
+			StudentPhoneNumber:<span th:text="${student.PhoneNumber}"/><br><br>
+			StudentDateOfBirth:<span th:text="${student.DateOfBirth}"/><br><br>
+			StudentFile:<span th:text="${student.File}"/><br><br>
+			StudentId:<span th:text="${student.StudentId}"/><br><br>
+	
+		<ui>
+			StudentFavouriteSystem:
+		<li
+			th:each="tempSystem:${student.favoriteSystem}"th:text="${tempSystem}"/>
+		
+		</ui>
+		</body>
+</html>
